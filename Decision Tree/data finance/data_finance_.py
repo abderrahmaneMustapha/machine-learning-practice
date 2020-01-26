@@ -67,7 +67,7 @@ X_train, X_test, y_train, y_test = train_test_split(x,y,test_size = 0.3, random_
 
 
 # %%
-dtree = tree.DecisionTreeClassifier(criterion='entropy', max_depth=6, random_state=0)
+dtree = tree.DecisionTreeClassifier(criterion='gini', max_depth=6, random_state=0)
 dtree.fit(X_train, y_train)
 
 #use the model to make prediction
