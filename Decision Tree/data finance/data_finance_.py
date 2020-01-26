@@ -24,12 +24,10 @@ data.shape
 
 
 # %%
-data['bank_account'], class_names = pd.factorize(data['bank_account'])
-data['bank_account']
-
+class_names = data['bank_account']
 
 # %%
-data['bank_account'], class_names = pd.factorize(data['bank_account'])
+data['bank_account'],_  = pd.factorize(data['bank_account'])
 data['country'],_ = pd.factorize(data['country'])
 data['year'],_ = pd.factorize(data['year'])
 data['location_type'],_ = pd.factorize(data['location_type'])
@@ -88,17 +86,9 @@ import graphviz
 feature_names = x.columns
 dot_data = tree.export_graphviz(dtree, out_file=None, filled=True, rounded=True,
 feature_names=feature_names,
-class_names=None)
+class_names=class_names)
 
 import os
 os.environ["PATH"] += os.pathsep + 'C:/Users/icom/.conda/pkgs/graphviz-2.38-hfd603c8_2/Library/bin/graphviz'
 graph = graphviz.Source(dot_data)
 graph.render("Source.gv", view=True)
-
-# %%
-
-
-
-# %%
-
-
